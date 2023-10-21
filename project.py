@@ -1,4 +1,3 @@
-# pip install streamlit fbprophet yfinance plotly
 import streamlit as st
 from datetime import date
 
@@ -6,13 +5,16 @@ import yfinance as yf
 from prophet import Prophet
 from prophet.plot import plot_plotly
 from plotly import graph_objs as go
+from PIL import Image
 
 START = "2015-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
-st.title('Stock Forecast App')
+st.title('Stock Forecast Web Application')
+image = Image.open('picture.jpg')
+st.image(image,'')
 
-stocks = ('GOOG', 'AAPL', 'MSFT', 'GME','NFLX','TSLA')
+stocks = ('GOOG', 'AAPL', 'MSFT', 'BRK-B','NFLX','TSLA','TCS.NS','YOJ.SG')
 selected_stock = st.selectbox('Select dataset for prediction', stocks)
 
 n_years = st.slider('Years of prediction:', 1, 4)
